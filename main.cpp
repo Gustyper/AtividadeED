@@ -1,49 +1,63 @@
 #include <iostream>
-#include <math.h> 
 
 using std::cin;
 using std::cout;
 using std::endl;
 using std::string;
 
-int iPotencia(int&, int);
+int potencia(int&, int); // reescrevendo pow()
 
-int iFatorial(int);
+int fatorial(int);
 
-float fProgressao(float&, float, int);
+float progressao(float&, float, int);
+
+int fibonacci(int);
+
+int numDigitos(int);
 
 int main()
 {
-    int a = 2;
-    cout << iPotencia(a, 5) << endl;
-
-    int b = 6;
-    cout << iFatorial(b) << endl;
+    // -- Questao 1
+    int iEntrada = 2;
+    int iPower = 5;
+    cout << potencia(iEntrada, iPower) << endl;
     
-    float c = 0;
-    float razao = 0.1;
-    int quantidade = 10;
+    // -- Questao 2
+    int iEntrada2 = 6;
+    cout << fatorial(iEntrada2) << endl;
     
-    cout << fProgressao(c, razao, quantidade) << endl;
+    // -- Questao 3
+    float iEntrada3 = 0.1;
+    float fRazao = 0.1;
+    int iQuantidade = 10;
+    cout << progressao(iEntrada3, fRazao, iQuantidade) << endl;
+    
+    // -- Questao 4
+    int iEntrada4 = 15;
+    cout << fibonacci(iEntrada4) << endl;
+    
+    // -- Questao 5
+    int iEntrada5 = 12345;
+    cout << numDigitos(iEntrada5) << endl;
     
     return 0;
 }
 
 // ########################################## questão 1
-int iPotencia(int& numero, int power)
+int potencia(int& irefNumero, int iPower)
 {
-    int base = numero;
+    int iBase = irefNumero;
     
-    for (int i = 1; i < power; i++)
+    for (int i = 1; i < iPower; i++)
     {
-        numero *= base;
+        irefNumero *= iBase;
     }
     
-    return numero;
+    return irefNumero;
 }
 
 // ########################################## questão 2
-int iFatorial(int iValor)
+int fatorial(int iValor)
 {
     int iFatorial = 1;
     if (iValor >= 0)
@@ -58,14 +72,39 @@ int iFatorial(int iValor)
 }
 
 // ########################################## questão 3
-float fProgressao(float& inicio, float razao, int elementos)
+float progressao(float& frefInicio, float fRazao, int iElementos)
 {
-    for (int i = 0; i < elementos - 1; i++)
+    for (int i = 0; i < iElementos - 1; i++)
     {
-        inicio += razao;
+        frefInicio += fRazao;
     }
     
-    return inicio;
+    return frefInicio;
+}
+
+// ########################################## questão 4
+int fibonacci(int iIndice)
+{
+    int iValorAtual = 1;
+    int iValorAnterior = 0;
+    int iTemp = 0;
+    for (int i = 2; i <= iIndice; i++)
+    {
+        iTemp = iValorAnterior;
+        iValorAnterior = iValorAtual;
+        iValorAtual += iTemp;
+    }
+    return iValorAtual;
+}
+
+// ########################################## questão 5
+int numDigitos(int iNum)
+{
+    string strNumero = std::to_string(iNum);
+    
+    int inumDigitos = strNumero.size();
+    
+    return inumDigitos;
 }
 
 // Notação húngara e referência
