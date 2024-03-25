@@ -28,10 +28,10 @@ int main()
     cout << iEntrada2 << endl;
     
     // -- Questao 3
-    float iEntrada3 = 0.1;
+    float fEntrada3 = 0.1;
     float fRazao = 0.1;
     int iQuantidade = 10;
-    cout << progressao(iEntrada3, fRazao, iQuantidade) << endl;
+    cout << progressao(fEntrada3, fRazao, iQuantidade) << endl;
     
     // -- Questao 4
     int iEntrada4 = 15;
