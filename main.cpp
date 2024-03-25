@@ -7,7 +7,7 @@ using std::string;
 
 int potencia(int&, int); // reescrevendo pow()
 
-int fatorial(int);
+int fatorial(int&);
 
 float progressao(float&, float, int);
 
@@ -25,6 +25,7 @@ int main()
     // -- Questao 2
     int iEntrada2 = 6;
     cout << fatorial(iEntrada2) << endl;
+    cout << iEntrada2 << endl;
     
     // -- Questao 3
     float iEntrada3 = 0.1;
@@ -57,18 +58,18 @@ int potencia(int& irefNumero, int iPower)
 }
 
 // ########################################## questão 2
-int fatorial(int iValor)
+int fatorial(int& irefValor)
 {
-    int iFatorial = 1;
-    if (iValor >= 0)
+    int iNumIter = irefValor;
+    irefValor = 1;
+    if (iNumIter >= 0)
     {
-        for (int i = iValor; i > 0; i--)
+        for (iNumIter; iNumIter > 0; iNumIter--)
         {
-            iFatorial = iFatorial * i;
+            irefValor = irefValor * iNumIter;
         }
     }
-    
-    return iFatorial;
+    return irefValor;
 }
 
 // ########################################## questão 3
