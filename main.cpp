@@ -10,6 +10,8 @@ int iPotencia(int&, int);
 
 int iFatorial(int);
 
+float fProgressao(float&, float, int);
+
 int main()
 {
     int a = 2;
@@ -17,20 +19,27 @@ int main()
 
     int b = 6;
     cout << iFatorial(b) << endl;
+    
+    float c = 0;
+    float razao = 0.1;
+    int quantidade = 10;
+    
+    cout << fProgressao(c, razao, quantidade) << endl;
+    
     return 0;
 }
 
 // ########################################## questão 1
 int iPotencia(int& numero, int power)
 {
-    int resultado = numero;
+    int base = numero;
     
     for (int i = 1; i < power; i++)
     {
-        resultado *= numero;
+        numero *= base;
     }
     
-    return resultado;
+    return numero;
 }
 
 // ########################################## questão 2
@@ -46,6 +55,17 @@ int iFatorial(int iValor)
     }
     
     return iFatorial;
+}
+
+// ########################################## questão 3
+float fProgressao(float& inicio, float razao, int elementos)
+{
+    for (int i = 0; i < elementos - 1; i++)
+    {
+        inicio += razao;
+    }
+    
+    return inicio;
 }
 
 // Notação húngara e referência
